@@ -1,0 +1,29 @@
+[33mcommit 19641b3f51e1565ed8ebea96e562d2b588dcb903[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: unknown <gustavoazeribeiro21@gmail.com>
+Date:   Mon Nov 24 18:11:56 2025 -0300
+
+    feat: coloca o lombok na classe
+
+[33mcommit 1b50aaeb52e78f89092a157b44896301d67d9ff2[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: unknown <gustavoazeribeiro21@gmail.com>
+Date:   Mon Nov 24 18:00:53 2025 -0300
+
+    Adicionei missoes e JPA
+
+[33mcommit 41cca145a3d7cb35db8be00cedaa25726a44ac4e[m
+Author: unknown <gustavoazeribeiro21@gmail.com>
+Date:   Mon Nov 24 14:27:42 2025 -0300
+
+    criei models
+
+[33mcommit b2310d750d641fc584bcc2ab7b996b43614544a1[m
+Author: unknown <gustavoazeribeiro21@gmail.com>
+Date:   Mon Nov 24 13:34:48 2025 -0300
+
+    criei os controllers
+
+[33mcommit d29d01c70cc2f2507206326c55b4166bc501d433[m
+Author: unknown <gustavoazeribeiro21@gmail.com>
+Date:   Mon Nov 24 13:12:04 2025 -0300
+
+    primeiro commit

@@ -1,6 +1,7 @@
 package eu.com.example.Eu.Ninjas;
 
 import eu.com.example.Eu.Missoes.Missoes;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,11 +27,12 @@ public class NinjaModel {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    @Column(unique = true)
     private String email;
     private int idade;
     
     @ManyToOne
-    @JoinColumn(name = "missoes_id")
+    @JoinColumn(name = "missoes_id")    
     private Missoes missoes;
 
 
