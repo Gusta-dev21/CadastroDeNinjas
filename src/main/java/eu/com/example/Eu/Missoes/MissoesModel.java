@@ -20,7 +20,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Missoes {
+
+public class MissoesModel {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long ID;

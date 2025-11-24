@@ -1,6 +1,6 @@
 package eu.com.example.Eu.Ninjas;
 
-import eu.com.example.Eu.Missoes.Missoes;
+import eu.com.example.Eu.Missoes.MissoesModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,7 +33,7 @@ public class NinjaModel {
     
     @ManyToOne
     @JoinColumn(name = "missoes_id")    
-    private Missoes missoes;
+    private MissoesModel missoes;
 
 
   
