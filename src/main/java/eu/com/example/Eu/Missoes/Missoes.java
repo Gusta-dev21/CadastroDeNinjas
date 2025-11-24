@@ -11,9 +11,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="tb_missoes")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Missoes {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,14 +30,7 @@ public class Missoes {
     @OneToMany(mappedBy="missoes")
     private List<NinjaModel> ninjas;
     
-    public Missoes(RankMissoes rank) {
-        this.rank = rank;
-    }
-    public Missoes(Long iD, String nome, RankMissoes rank) {
-        ID = iD;
-        this.nome = nome;
-        this.rank = rank;
-    }
+   
 
 
 }
