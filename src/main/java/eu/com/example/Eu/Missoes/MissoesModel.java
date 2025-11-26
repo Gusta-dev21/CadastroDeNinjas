@@ -2,7 +2,7 @@ package eu.com.example.Eu.Missoes;
 
 import java.util.List;
 
-import org.hibernate.annotations.ManyToAny;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import eu.com.example.Eu.Ninjas.NinjaModel;
 import jakarta.persistence.Entity;
@@ -29,6 +29,7 @@ public class MissoesModel {
     private RankMissoes rank;
 
     @OneToMany(mappedBy="missoes")
+    @JsonIgnore
     private List<NinjaModel> ninjas;
     
    
