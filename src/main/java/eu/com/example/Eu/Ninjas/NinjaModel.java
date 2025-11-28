@@ -14,7 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tb_cadastro_de_ninjas")
+@Table(name = "tb_ninjas")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -38,6 +38,11 @@ public class NinjaModel {
     private MissoesModel missoes;
     @Column(name="especial")
     private String especial;
+
+    @Column(name="imagem_ninja")
+    private String imgurl;
+    @Column(name="rank")
+    private String rank;
 
 
   

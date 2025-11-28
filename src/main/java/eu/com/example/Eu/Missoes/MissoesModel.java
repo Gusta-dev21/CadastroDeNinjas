@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import eu.com.example.Eu.Ninjas.NinjaModel;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,9 +25,10 @@ import lombok.NoArgsConstructor;
 
 public class MissoesModel {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)//estrategia onde ele vai gerar os id por ordem numerica 1,2,3,4...
     private Long ID;
     private String nome;
+    @Enumerated(EnumType.STRING)
     private RankMissoes rank;
 
     @OneToMany(mappedBy="missoes")

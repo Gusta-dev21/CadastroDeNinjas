@@ -10,6 +10,7 @@ public class EuApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EuApplication.class, args);
+
 		
 	}
 
