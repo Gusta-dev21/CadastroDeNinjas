@@ -2,8 +2,14 @@ package eu.com.example.Eu;
 
 import java.util.List;
 
-
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import eu.com.example.Eu.Ninjas.NinjaModel;
 import eu.com.example.Eu.services.NinjaServices;
@@ -50,14 +56,14 @@ public class NinjaControllers {
             return  "monstrando ninjas por id";
     }
 
-    @PutMapping("/alterarID")
-    public String alterarNinjasporID(){
-            return  "Alterando ninjas por id";
+    @PutMapping("/alterar/{id}")
+    public NinjaModel alterarNinjasporID(@PathVariable Long id,@RequestBody NinjaModel ninjaAtualizado){
+            return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 
-    @DeleteMapping("/deletarID")
-    public String deletarNinjaPorID(){
-        return "Deletando ninja por id";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaPorID(@PathVariable Long id){
+       ninjaService.deletarNinjaPorID(id);
     }
 
     private void listarNinjas() {
