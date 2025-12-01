@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import eu.com.example.Eu.Ninjas.NinjaDTO;
+import eu.com.example.Eu.Ninjas.NinjaMapper;
 import eu.com.example.Eu.Ninjas.NinjaModel;
 import eu.com.example.Eu.Ninjas.NinjaRepository;
 
@@ -12,9 +14,12 @@ import eu.com.example.Eu.Ninjas.NinjaRepository;
 public class NinjaServices {
     
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
+     
 
-    public NinjaServices(NinjaRepository ninjaRepository){
+    public NinjaServices(NinjaRepository ninjaRepository,NinjaMapper ninjaMapper){
             this.ninjaRepository = ninjaRepository;
+            this.ninjaMapper = ninjaMapper;
     }
 
 
@@ -28,8 +33,9 @@ public class NinjaServices {
         return ninjaID.orElse(null);
     }
 
-    public NinjaModel criarNinja(NinjaModel ninjaModel){
-      return ninjaRepository.save(ninjaModel);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninjaModel = ninjaMapper.map(ninjaDTO);
+        ninjaRepository.save(ninjaModel);
     }
 
     public void deletarNinjaPorID(Long id){
