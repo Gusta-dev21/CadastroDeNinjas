@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import eu.com.example.Eu.Ninjas.NinjaDTO;
 import eu.com.example.Eu.Ninjas.NinjaModel;
 import eu.com.example.Eu.services.NinjaServices;
 
@@ -37,17 +38,17 @@ public class NinjaControllers {
     }
     //enviar os ninjas para criar-los
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel){
-           return ninjaService.criarNinja(ninjaModel);
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninjaDTO){
+           return ninjaService.criarNinja(ninjaDTO);
        }
    
     @GetMapping("/listar")
-    public List<NinjaModel> mostrarNinjas(){
+    public List<NinjaDTO> mostrarNinjas(){
               return ninjaService.listarNinjas();
 
     }
     @GetMapping("/listar/{id}")
-    public NinjaModel mostrarNinjas(@PathVariable Long id){
+    public NinjaDTO mostrarNinjas(@PathVariable Long id){
               return ninjaService.ListarNinjaporID(id);
 
     }
@@ -57,7 +58,7 @@ public class NinjaControllers {
     }
 
     @PutMapping("/alterar/{id}")
-    public NinjaModel alterarNinjasporID(@PathVariable Long id,@RequestBody NinjaModel ninjaAtualizado){
+    public NinjaModel alterarNinjasporID(@PathVariable Long id,@RequestBody NinjaDTO ninjaAtualizado){
             return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 
