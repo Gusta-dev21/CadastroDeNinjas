@@ -25,16 +25,16 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    private Long id;//INT
     @Column(name="nome")
-    private String nome;
+    private String nome;//VARCHAR
     @Column(unique = true)
     private String email;
     @Column(name="idade")
-    private int idade;
+    private int idade;//INT
     
     @ManyToOne
-    @JoinColumn(name = "missoes_id")   
+    @JoinColumn(name = "missoes_id") //FK  
     private MissoesModel missoes;
     @Column(name="especial")
     private String especial;

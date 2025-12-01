@@ -43,12 +43,12 @@ public class NinjaControllers {
        }
    
     @GetMapping("/listar")
-    public List<NinjaModel> mostrarNinjas(){
+    public List<NinjaDTO> mostrarNinjas(){
               return ninjaService.listarNinjas();
 
     }
     @GetMapping("/listar/{id}")
-    public NinjaModel mostrarNinjas(@PathVariable Long id){
+    public NinjaDTO mostrarNinjas(@PathVariable Long id){
               return ninjaService.ListarNinjaporID(id);
 
     }
@@ -58,7 +58,7 @@ public class NinjaControllers {
     }
 
     @PutMapping("/alterar/{id}")
-    public NinjaModel alterarNinjasporID(@PathVariable Long id,@RequestBody NinjaModel ninjaAtualizado){
+    public NinjaModel alterarNinjasporID(@PathVariable Long id,@RequestBody NinjaDTO ninjaAtualizado){
             return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 
