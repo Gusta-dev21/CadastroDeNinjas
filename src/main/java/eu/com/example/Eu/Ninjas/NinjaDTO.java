@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@Data
+@Data//getters ane setters
 @AllArgsConstructor
 @NoArgsConstructor
 public class NinjaDTO {
