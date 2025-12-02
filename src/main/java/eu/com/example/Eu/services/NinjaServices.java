@@ -57,4 +57,10 @@ public class NinjaServices {
 
         
     }
+
+
+    public void alterarNinjasporID(Long id, NinjaDTO ninjaAtualizado) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'alterarNinjasporID'");
+    }
 }

@@ -2,6 +2,8 @@ package eu.com.example.Eu;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,8 +40,10 @@ public class NinjaControllers {
     }
     //enviar os ninjas para criar-los
     @PostMapping("/criar")
-    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninjaDTO){
-           return ninjaService.criarNinja(ninjaDTO);
+    public ResponseEntity<String> criarNinja(@RequestBody NinjaDTO ninjaDTO){
+         NinjaDTO ninja = ninjaService.criarNinja(ninjaDTO);
+         return ResponseEntity.status(HttpStatus.CREATED).body("Ninja criado com sucesso " + ninja.getNome() + " ID: " + ninja.getId()) ;
+
        }
    
     @GetMapping("/listar")
@@ -58,13 +62,25 @@ public class NinjaControllers {
     }
 
     @PutMapping("/alterar/{id}")
-    public NinjaModel alterarNinjasporID(@PathVariable Long id,@RequestBody NinjaDTO ninjaAtualizado){
-            return ninjaService.atualizarNinja(id, ninjaAtualizado);
+    public ResponseEntity<String> alterarNinjasporID(@PathVariable Long id,@RequestBody NinjaDTO ninjaAtualizado){
+            if(ninjaService.ListarNinjaporID(id) != null){
+                    ninjaService.atualizarNinja(id, ninjaAtualizado);
+                    return ResponseEntity.ok("Ninja atualizado com sucesso");
+
+            }else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ninja não existe ");
+            }
     }
 
     @DeleteMapping("/deletar/{id}")
-    public void deletarNinjaPorID(@PathVariable Long id){
-       ninjaService.deletarNinjaPorID(id);
+    public ResponseEntity<String> deletarNinjaPorID(@PathVariable Long id){
+        if(ninjaService.ListarNinjaporID(id) != null){
+                ninjaService.deletarNinjaPorID(id);
+                return ResponseEntity.ok("Ninja Deletado com sucesso");
+
+        }else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ninja Não encontrado");
+        }
     }
 
     private void listarNinjas() {
